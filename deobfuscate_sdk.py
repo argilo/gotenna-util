@@ -20,24 +20,34 @@ def l1l11l_opy_(keyed_string_literal):
 
 def deobfuscate_name(prefix, bits):
     var_names = {
+        3: "is_ack",  # not certain
+        7: "is_nak",  # not certain
         8: "skip_membership",
         10: "cmd_byte",
         19: "app_id",
         24: "magic_char",  # not certain
         65: "dest",
         82: "logger",
+        92: "Python",  # not certain
         114: "message_obj",
         116: "local_pubkey",
         176: "good_patterns",
         179: "error_patterns",
         215: "b64string",
+        221: "decrypt_bytes",
+        223: "serialize_keypair",
+        224: "deserialize_keypair",
         225: "pubkey",
         227: "my_pubkey",
         228: "my_gid",
+        229: "serialize_pubkey",
+        236: "crypt_bytes",  # not certain
+        238: "pubkey_from_compressed",
         239: "message_counter",
         240: "local_keypair",
         242: "shared_secret_bytes",
         246: "bytes_to_crypt",
+        247: "deserialize_pubkey",
         248: "sender_gid",
         250: "sender_pubkey",
         252: "sender_gid_val",
@@ -46,15 +56,19 @@ def deobfuscate_name(prefix, bits):
         265: "chunk_len",  # not certain
         267: "plaintext",
         269: "foreign_pubkey",
+        271: "crypt_chunk",  # not certain
+        279: "encrypt_bytes",
         280: "subcounter",
         281: "sender_pubkey_bytes",
         282: "compressed",
         285: "group_shared_secret",
         288: "my_gid",
         292: "keypair",
+        296: "gen_keypair",  # not certain
         297: "pubkey",
         298: "group_gid_val",
         299: "plaintext",
+        301: "pubkey_as_compressed",
         312: "flooding_shout",
         326: "cmd_bin",
         340: "meshing",
@@ -68,6 +82,7 @@ def deobfuscate_name(prefix, bits):
         390: "data_length",
         400: "filelike",
         464: "serialized_data",  # not certain
+        465: "get_logger",
         466: "tlv_type",  # not certain
         468: "color_int",
         483: "red",
