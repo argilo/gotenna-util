@@ -106,13 +106,14 @@ with zipfile.ZipFile("goTenna-0.12.5-py3-none-any.whl") as sdk_zip:
             lines = [line.decode() for line in f.readlines()]
 
         with open(out_filename, "w") as f:
-            if "l1llll_opy_ = 2048\n" in lines:
-                for line in lines[16:]:
+            try:
+                index = lines.index("l1llll_opy_ = 2048\n")
+                for line in lines[:index-2] + lines[index+13:]:
                     if re.search(r'^\s*(class|def) ', line):
                         line = "\n" + line
                     line = re.sub(r'l1l11l_opy_ \(u"[^"]*"\)', lambda x: eval(x.group()), line)
                     line = re.sub(r'(__|_|l)([l1]+)_opy_', lambda x: deobfuscate_name(x.group(1), x.group(2)), line)
                     f.write(line)
-            else:
+            except ValueError:
                 for line in lines:
                     f.write(line)
